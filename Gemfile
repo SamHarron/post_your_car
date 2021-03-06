@@ -11,5 +11,5 @@ gem 'shotgun' #Allows for Testing in Real Time
 gem 'pry'
 gem 'bcrypt' #Securing & Encrypting Passwords
 gem 'tux'
-gem 'rack-flash3'
+gem 'sinatra-flash'
 
