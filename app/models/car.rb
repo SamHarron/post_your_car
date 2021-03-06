@@ -4,5 +4,4 @@ class Car < ActiveRecord::Base
     validates :model, presence: true
     validates :year, presence: true
     validates :mileage, presence: true
-
 end

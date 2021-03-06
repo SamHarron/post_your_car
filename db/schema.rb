@@ -10,25 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_070532) do
-
-  create_table "body_styles", force: :cascade do |t|
-    t.string "type"
-  end
+ActiveRecord::Schema.define(version: 2021_03_06_064657) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "bodystyle_id"
     t.string "make"
     t.string "model"
     t.integer "year"
     t.string "exterior_color"
-    t.string "interior_color"
     t.integer "mileage"
+    t.integer "price"
+    t.string "image_url"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "user_id"
     t.string "email"
     t.string "password_digest"
   end

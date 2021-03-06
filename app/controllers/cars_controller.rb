@@ -4,6 +4,6 @@ class CarsController < ApplicationController
         @cars = Car.all
         erb :'cars/index'
     end
- 
+
     
 end

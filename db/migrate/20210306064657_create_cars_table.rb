@@ -1,4 +1,4 @@
-class CreateCars < ActiveRecord::Migration[5.2]
+class CreateCarsTable < ActiveRecord::Migration[5.2]
   def change
     create_table :cars do |t|
       t.integer :user_id
@@ -7,6 +7,8 @@ class CreateCars < ActiveRecord::Migration[5.2]
       t.integer :year
       t.string :exterior_color
       t.integer :mileage
+      t.integer :price
+      t.string :image_url
     end
   end
 end
