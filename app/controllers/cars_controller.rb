@@ -18,8 +18,12 @@ class CarsController < ApplicationController
 
   #Read
   get '/cars' do
-    @cars = Car.all
-    erb :'cars/index'
+    if logged_in?
+      @cars = Car.all
+      erb :'cars/index'
+    else
+      redirect '/signup'
+    end
   end
 
   #Read

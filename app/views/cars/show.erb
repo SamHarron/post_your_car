@@ -10,7 +10,7 @@
 
 
 
-    <% if logged_in? %>
+    <% if current_user == @car.user %>
       <button type="submit" class="btn btn-warning"><a href="/cars/<%= @car.id %>/edit">Edit Listing</button>
     <br><br>
     <form action="/cars/<%=@car.id %>" method="post" >
