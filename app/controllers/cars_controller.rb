@@ -43,7 +43,7 @@ class CarsController < ApplicationController
   end
 
   #Update
-  #After the Car does not get updated, it creates a new Listing.
+  #The Car does not get updated, it creates a new Listing.
   get '/cars/:id/edit' do
     @car = Car.find_by(id: params[:id])
     if @car && @car.user == current_user
