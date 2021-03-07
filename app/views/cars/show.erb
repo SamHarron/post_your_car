@@ -1,0 +1,22 @@
+<div class="jumbotron text-center">
+  <h3>Make: <%=@car.make%></h3>
+  <h3>Model: <%=@car.model %></h3>
+  <h3>Year: <%=@car.year %></h3>
+  <h3>Exterior Color: <%=@car.exterior_color %></h3>
+  <h3>Mileage: <%=@car.mileage%></h3>
+  <h3>Price: $<%=@car.price%></h3> 
+  <a href="<%= @car.image_url %>" class="btn btn-info">View Photo</a>
+    <br><br><br><br>
+
+
+
+    <% if logged_in? %>
+      <button type="submit" class="btn btn-warning"><a href="/cars/<%= @car.id %>/edit">Edit Listing</button>
+    <br><br>
+    <form action="/cars/<%=@car.id %>" method="post" >
+      <input type="hidden" name="_method" value="delete">
+          <button type="submit" class="btn btn-danger">Delete Listing</button>
+    <% end %>
+        
+    </form>
+</div>

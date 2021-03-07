@@ -17,6 +17,25 @@
   </head>
   <body style="background-color:#E9F0FF;">
 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" style="font-family:Fantasy; color:maroon" href="/">P.Y.C.</a>
+
+              <% if logged_in? %>
+                <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/cars">Cars</a>
+                <a class="nav-item nav-link" href="/cars/new">Create a Post</a>
+                <a class="nav-item nav-link" href="/logout">Log Out</a>
+              <%else%>
+                <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/cars">Cars</a>
+                <a class="nav-item nav-link" href="/signup">Sign Up</a>
+                <a class="nav-item nav-link" href="/login">Log In</a>
+              <%end %>
+            </div>
+          </div>
+        </nav>
+  
+
 
        <%= yield %>
 

@@ -37,3 +37,11 @@ exterior_color: "White",
 mileage: 55000, 
 price: 35000,
 image_url: "https://i.ytimg.com/vi/eZ1tQBaYiyI/hqdefault.jpg")
+
+car6 = Car.create(make: 'BMW', 
+model: "X5", 
+year: 2013, 
+exterior_color: "Black", 
+mileage: 48000, 
+price: 26000,
+image_url: "https://www.bulautosales.com/galleria_images/813/813_main_l.jpg")

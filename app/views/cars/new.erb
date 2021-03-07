@@ -1,10 +1,30 @@
-<div class="container">
-<h1> Submit The Form Below To Post Your Car For Sale! </h1>
-
-    <div class="content">
-      <h2>Every Field Must Be Filled Out.</h2>
-    </div>
-
-   </div>
+<div class="container text-center" class="jumbotron jumbotron-fluid" style="background-color:#E9F0FF">
+<br><br><br>
+  <h4 class="display-4" style="color:maroon"><b>List a Car for Sale</b></h4><form action="/cars" method="post">
+    <h4 style="color:maroon"><b>Please Fill Out All Below Fields</b></h4>
+    <br>
+      <form action="/cars" method="post">
+        <label><b>Make</b></label>
+        <input class="form-control form-control-sm" type="text" name="car[make]">
+        <br>
+        <label><b>Model</b></label>
+        <input class="form-control form-control-sm" type="text" name="car[model]">
+        <br>
+        <label><b>Year</b></label>
+        <input class="form-control form-control-sm" type="integer" name="car[year]">
+        <br>
+        <label><b>Exterior Color</b></label>
+        <input class="form-control form-control-sm" type="text" name="car[exterior_color]">
+        <br>
+        <label><b>Mileage</b><br>(Do Not Use Comma ',')</label>
+        <input class="form-control form-control-sm" type="integer" name="car[mileage]">
+        <br>
+        <label><b>Price</b><br>(Do Not Use Dollar Sign '$' or Comma ',')</label>
+        <input class="form-control form-control-sm" type="integer" name="car[price]">
+        <br>
+        <label><b>Image URL</b></label>
+        <input class="form-control form-control-sm" type="text" name="car[image_url]">
+        <br>
+        <button class="btn btn-info" type="submit">List Car for Sale</button>
+      </form>
 </div>
-

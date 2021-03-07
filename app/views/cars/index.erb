@@ -1,5 +1,22 @@
-<h1> Cars for Sale...</h1>
+<br>
+<h1 style="font-family:Fantasy; color:maroon"><u>Cars for Sale</u></h1>
+<div class="row mt-4 mb-4">
+  <% @cars.each_slice(1) do |cars| %>
+    <div class="text-center">
+      <% cars.each do |car| %>
+          <div class="card-body text-center"
+            <h5 class="card-title">
+            <h6 class="card-text"><%=car.make %><%=' '%><%=car.model %></h6>
+            Year: <%=car.year %> 
+            <br>Mileage: <%=car.mileage %></h5>
+            <br><br>
+            <h6 class="card-text">Price: $<%= car.price %></h6>
+            <a href="/cars/<%= car.id %>" class="btn btn-info btn-sm">More Info</a>
+        </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>
 
-
-
+   
 
