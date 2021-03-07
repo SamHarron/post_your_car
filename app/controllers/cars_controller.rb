@@ -1,35 +1,41 @@
 class CarsController < ApplicationController
-    #Create
-  get '/cars/new' do
-    @car = Car.new
-    erb :'/cars/new'
-  end
-
-    #Create
-  post '/cars' do
-    @car = Car.new(params[:car])
-
-    if @car.save
-      redirect '/cars'
-    else
-      erb :'/cars/new'
-    end
-  end 
-
-  #Read
+    #Read
   get '/cars' do
     if logged_in?
       @cars = Car.all
       erb :'cars/index'
     else
-      redirect '/signup'
+      redirect '/login'
+    end
+  end
+
+    #Create
+  get '/cars/new' do
+    if logged_in?
+      erb :'/cars/new'
+    else
+      redirect '/login'
+    end
+  end
+
+    #Create
+  post '/cars' do
+    if logged_in?
+      @car = current_user.cars.build params[:car]
+        if @car.save
+          redirect "/cars"
+        else
+          redirect "/cars/new"
+        end
+    else
+      redirect '/login'
     end
   end
 
   #Read
   get '/cars/:id' do
-    @car = Car.find_by(id: params[:id])
-    if @car
+    if logged_in?
+      @car = Car.find_by(id: params[:id])
       erb :'cars/show'
     else
       redirect '/cars'
@@ -37,9 +43,10 @@ class CarsController < ApplicationController
   end
 
   #Update
+  #After the Car does not get updated, it creates a new Listing.
   get '/cars/:id/edit' do
     @car = Car.find_by(id: params[:id])
-    if @car.user_id == session[:user_id]
+    if @car && @car.user == current_user
       erb :'/cars/edit'
     else
       erb :'/cars/index'
@@ -48,23 +55,34 @@ class CarsController < ApplicationController
 
   #Update
   put '/cars/:id' do
-    @car = Car.find_by(id: params[:id])
-    if @car.update(params[:car])
-      redirect "/cars/#{params[:id]}"
+    if logged_in?
+      @car = Car.find_by(id: params[:id])
+      @car && @car.user == current_user
+        if @car
+          if @car.update(params[:car])
+            redirect "/cars"
+          else
+            redirect "/cars/#{@car.id}/edit"
+          end
+        else
+          redirect '/cars'
+        end
     else
-      erb :'/cars/edit'
+      redirect to '/login'
     end
   end
 
   #Delete
   #To successfully Delete, my Verb has to be Post.
   post '/cars/:id' do
-    require_logged_in
-    @car = Car.find_by(id: params[:id])
-    if @car
-    @car.delete
+    if logged_in?
+      @car = Car.find_by(id: params[:id])
+      if @car && @car.user == current_user
+        @car.delete
+      end
+      redirect to '/cars'
+    else
+      redirect to '/login'
     end
-    redirect '/cars'
   end
-    
 end

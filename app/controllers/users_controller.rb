@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     get '/signup' do
-        redirect to '/cars' if logged_in?
+        redirect '/cars' if logged_in?
         @user = User.new
         erb :'users/signup'
     end
@@ -14,12 +14,12 @@ class UsersController < ApplicationController
         else
             @user.save
             session[:user_id] = @user.id
-            redirect to '/cars'
+            redirect '/cars'
         end
     end
 
     get '/login' do
-        redirect to '/cars' if logged_in?
+        redirect '/cars' if logged_in?
         erb :'users/login'
     end
 
@@ -35,6 +35,6 @@ class UsersController < ApplicationController
 
     get '/logout' do
         session.destroy if logged_in?
-        redirect to '/'
+        redirect '/'
     end
 end
