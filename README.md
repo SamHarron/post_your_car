@@ -20,6 +20,10 @@ Copy and Paste the http address that Shotgun provides you in a brower search bar
 
 Create an account by typing in a unique username, email, and password. Then add a car for sale listing that you'd like other users to see. 
 
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/SamHarron/post_your_car. For major changes, please open an issue first to discuss what you would like to change.
+
 ## License
 
 This app is available as open source under the terms of the MIT License.
