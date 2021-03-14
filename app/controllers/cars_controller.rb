@@ -54,21 +54,15 @@ class CarsController < ApplicationController
   end
 
   #Update
-  put '/cars/:id' do
+  patch '/cars/:id' do
     if logged_in?
       @car = Car.find_by(id: params[:id])
-      @car && @car.user == current_user
-        if @car
-          if @car.update(params[:car])
-            redirect "/cars"
-          else
-            redirect "/cars/#{@car.id}/edit"
-          end
-        else
-          redirect '/cars'
-        end
-    else
-      redirect to '/login'
+      if @car && @car.user == current_user
+        @car.update(params[:car])
+        redirect '/cars'
+      else
+        redirect '/cars'
+      end
     end
   end
 
